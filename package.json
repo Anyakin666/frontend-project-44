@@ -32,11 +32,10 @@
     "globals": "^16.0.0",
     "typescript-eslint": "^8.26.1"
   },
-  {
+  
   "dependencies": {
     "brain-even": "^1.0.0",
     "brain-games": "^1.1.5", 
     "readline-sync": "^1.4.10"
   }
-}
 }
