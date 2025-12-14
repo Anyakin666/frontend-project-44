@@ -12,17 +12,17 @@ const generateRound = () => {
   const start = getRandomNumber(1, 50);
   const step = getRandomNumber(2, 10);
   const length = getRandomNumber(5, 10);
-  
+
   const progression = generateProgression(start, step, length);
   const hiddenIndex = getRandomNumber(0, length - 1);
-  
+
   const progressionWithHidden = progression
     .map((num, idx) => (idx === hiddenIndex ? '..' : String(num)))
     .join(' ');
-  
+
   const question = progressionWithHidden;
   const answer = String(progression[hiddenIndex]);
-  
+
   return { question, answer };
 };
 

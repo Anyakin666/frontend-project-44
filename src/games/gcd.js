@@ -12,10 +12,10 @@ const gcd = (a, b) => {
 const generateRound = () => {
   const a = getRandomNumber(1, 100);
   const b = getRandomNumber(1, 100);
-  
+
   const question = `${a} ${b}`;
   const answer = String(gcd(a, b));
-  
+
   return { question, answer };
 };
 
