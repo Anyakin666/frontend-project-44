@@ -1,15 +1,15 @@
-import { getRandomNumber } from '../utils.js';
+import { getRandomNumber } from '../utils.js'
 
-const isEven = (num) => num % 2 === 0;
+const isEven = num => num % 2 === 0
 
 const generateRound = () => {
-  const number = getRandomNumber(1, 100);
-  const question = String(number);
-  const answer = isEven(number) ? 'yes' : 'no';
+  const number = getRandomNumber(1, 100)
+  const question = String(number)
+  const answer = isEven(number) ? 'yes' : 'no'
 
-  return { question, answer };
-};
+  return { question, answer }
+}
 
-const description = 'Answer "yes" if the number is even, otherwise answer "no".';
+const description = 'Answer "yes" if the number is even, otherwise answer "no".'
 
-export { generateRound, description };
+export { generateRound, description }

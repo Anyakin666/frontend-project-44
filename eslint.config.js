@@ -1,6 +1,6 @@
-import js from '@eslint/js';
-import stylistic from '@stylistic/eslint-plugin';
-import globals from 'globals';
+import js from '@eslint/js'
+import stylistic from '@stylistic/eslint-plugin'
+import globals from 'globals'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -19,10 +19,10 @@ export default [
     },
     rules: {
       'no-console': 'off',
-      '@stylistic/semi': ['error', 'always'],
+      '@stylistic/semi': ['error', 'never'],
       '@stylistic/eol-last': ['error', 'always'],
       '@stylistic/no-trailing-spaces': 'error',
-      '@stylistic/arrow-parens': ['error', 'always'],
+      '@stylistic/arrow-parens': ['error', 'as-needed'],
       '@stylistic/comma-dangle': ['error', 'always-multiline'],
       '@stylistic/quotes': ['error', 'single'],
       '@stylistic/indent': ['error', 2],
@@ -32,4 +32,4 @@ export default [
       '@stylistic/array-bracket-spacing': ['error', 'never'],
     },
   },
-];
+]
