@@ -2,14 +2,13 @@
 
 import readlineSync from 'readline-sync';
 
-// Функция проверки на простое число
+// Улучшенная проверка на простое число
 const isPrime = (num) => {
-  if (num < 2) return false;
+  if (num <= 1) return false; // 1 и меньше - не простые
   if (num === 2) return true;
   if (num % 2 === 0) return false;
   
-  // Проверяем делители до квадратного корня
-  const limit = Math.sqrt(num);
+  const limit = Math.floor(Math.sqrt(num));
   for (let i = 3; i <= limit; i += 2) {
     if (num % i === 0) return false;
   }
@@ -26,15 +25,16 @@ const playGame = () => {
   let correctAnswers = 0;
   
   while (correctAnswers < 3) {
-    // Генерируем число от 1 до 100
-    const number = Math.floor(Math.random() * 100) + 1;
+    // Генерируем число от 2 до 100 (исключаем 1 для простоты)
+    const number = Math.floor(Math.random() * 99) + 2;
     
     console.log(`Question: ${number}`);
     const userAnswer = readlineSync.question('Your answer: ');
     
     const correctAnswer = isPrime(number) ? 'yes' : 'no';
     
-    if (userAnswer !== correctAnswer) {
+    // Приводим ответ пользователя к нижнему регистру
+    if (userAnswer.toLowerCase() !== correctAnswer) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${name}!`);
       return;
