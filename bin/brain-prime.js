@@ -2,9 +2,9 @@
 
 import readlineSync from 'readline-sync';
 
-// Улучшенная проверка на простое число
+
 const isPrime = (num) => {
-  if (num <= 1) return false; // 1 и меньше - не простые
+  if (num <= 1) return false;
   if (num === 2) return true;
   if (num % 2 === 0) return false;
   
@@ -25,7 +25,7 @@ const playGame = () => {
   let correctAnswers = 0;
   
   while (correctAnswers < 3) {
-    // Генерируем число от 2 до 100 (исключаем 1 для простоты)
+    
     const number = Math.floor(Math.random() * 99) + 2;
     
     console.log(`Question: ${number}`);
@@ -33,7 +33,7 @@ const playGame = () => {
     
     const correctAnswer = isPrime(number) ? 'yes' : 'no';
     
-    // Приводим ответ пользователя к нижнему регистру
+    
     if (userAnswer.toLowerCase() !== correctAnswer) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${name}!`);
