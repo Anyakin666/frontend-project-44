@@ -2,20 +2,23 @@
 
 import readlineSync from 'readline-sync';
 
-
 const isPrime = (num) => {
-  if (num <= 1) return false;
+  if (num < 2) return false;
   if (num === 2) return true;
   if (num % 2 === 0) return false;
-  
-  const limit = Math.floor(Math.sqrt(num));
+
+  const limit = Math.sqrt(num);
   for (let i = 3; i <= limit; i += 2) {
     if (num % i === 0) return false;
   }
   return true;
 };
 
-const playGame = () => {
+const getRandomNumber = () => {
+  return Math.floor(Math.random() * 100) + 1; // 1-100
+};
+
+const playPrimeGame = () => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
@@ -25,14 +28,12 @@ const playGame = () => {
   let correctAnswers = 0;
   
   while (correctAnswers < 3) {
-    
-    const number = Math.floor(Math.random() * 99) + 2;
+    const number = getRandomNumber();
     
     console.log(`Question: ${number}`);
     const userAnswer = readlineSync.question('Your answer: ');
     
     const correctAnswer = isPrime(number) ? 'yes' : 'no';
-    
     
     if (userAnswer.toLowerCase() !== correctAnswer) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
@@ -47,4 +48,4 @@ const playGame = () => {
   console.log(`Congratulations, ${name}!`);
 };
 
-playGame();
+playPrimeGame();
